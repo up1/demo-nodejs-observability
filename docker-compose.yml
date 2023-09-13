@@ -73,7 +73,5 @@ services:
     volumes:
       - ./logstash:/etc/logstash
     command: logstash -f /etc/logstash/logstash.conf
-    depends_on:
-      - elasticsearch
     ports:
       - 12201:12201/udp
