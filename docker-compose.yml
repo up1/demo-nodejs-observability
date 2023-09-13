@@ -75,3 +75,5 @@ services:
     command: logstash -f /etc/logstash/logstash.conf
     ports:
       - 12201:12201/udp
+    environment:
+      - xpack.monitoring.elasticsearch.ssl.verification_mode=none
