@@ -4,6 +4,7 @@ const { Resource } = require('@opentelemetry/resources');
 const { BatchSpanProcessor } = require('@opentelemetry/sdk-trace-base');
 const { NodeSDK } = require('@opentelemetry/sdk-node');
 const { SemanticResourceAttributes } = require('@opentelemetry/semantic-conventions');
+const { PinoInstrumentation } = require('@opentelemetry/instrumentation-pino');
 
 const hostName = process.env.OTEL_TRACE_HOST || 'localhost'
 
@@ -17,7 +18,7 @@ const sdk = new NodeSDK({
     [SemanticResourceAttributes.SERVICE_VERSION]: process.env.npm_package_version ?? '0.0.0',
     env: process.env.NODE_ENV || '',
   }),
-  instrumentations: [getNodeAutoInstrumentations()],
+  instrumentations: [getNodeAutoInstrumentations(), new PinoInstrumentation()],
   spanProcessor: new BatchSpanProcessor(traceExporter),
 });
 

@@ -23,6 +23,14 @@ app.use(function(req, res, next){
     next();
 })
 
+// Init Logger
+const expressPino = require("express-pino-logger");
+const logRequest = expressPino({
+  level: "info",
+  enabled: true,
+});
+app.use(logRequest);
+
 // Demo router
 app.get('/movies', async function (req, res) {
   res.type('json')

@@ -14,6 +14,7 @@
     "@opentelemetry/exporter-collector": "^0.25.0",
     "@opentelemetry/exporter-jaeger": "^1.17.0",
     "@opentelemetry/instrumentation": "^0.43.0",
+    "@opentelemetry/instrumentation-pino": "^0.34.1",
     "@opentelemetry/plugin-express": "^0.15.0",
     "@opentelemetry/plugin-http": "^0.18.2",
     "@opentelemetry/propagator-ot-trace": "^0.27.1",
@@ -25,6 +26,10 @@
     "@opentelemetry/tracing": "^0.24.0",
     "cross-fetch": "^3.1.5",
     "express": "^4.17.3",
+    "express-pino-logger": "^7.0.0",
     "prom-client": "^14.2.0"
+  },
+  "devDependencies": {
+    "@types/express-pino-logger": "^4.0.3"
   }
 }
