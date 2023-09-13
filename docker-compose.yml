@@ -38,3 +38,17 @@ services:
       # - OTEL_TRACE_HOST=143.198.216.115
       - OTEL_TRACE_HOST=jaeger
       - OTEL_RESOURCE_ATTRIBUTES=service.name=service2
+
+  prometheus:
+    image: prom/prometheus
+    ports:
+      - "9090:9090"
+    volumes:
+      - "./prometheus/prometheus.yml:/etc/prometheus/prometheus.yml"
+
+  grafana:
+    image: grafana/grafana-oss:8.5.2
+    ports:
+      - "3000:3000"
+    volumes:
+      - ./grafana/:/etc/grafana/provisioning

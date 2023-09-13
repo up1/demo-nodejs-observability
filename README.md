@@ -8,7 +8,42 @@
 * Centralized log
   * ELK stack
 
-## Distributed Tracing
+## 1. Application metrics
+
+### Start Service 2
+```
+$docker compose up -d service2 --build
+$docker compose ps
+```
+
+Access to service 2
+* http://localhost:3002/movies
+
+Access to metrics
+* http://localhost:3002/metrics
+
+### Start prometheus server
+```
+$docker compose up -d prometheus
+$docker compose ps 
+```
+
+Access to prometheus server
+* http://localhost:9090
+
+### Start grafana server
+```
+$docker compose up -d grafana
+$docker compose ps 
+```
+
+Access to grafana server
+* http://localhost:3000
+  * user=admin
+  * pass=admin
+
+
+## 2. Distributed Tracing
 Start Jaeger
 ```
 $docker compose up -d jaeger
