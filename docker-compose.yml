@@ -69,7 +69,7 @@ services:
       - ./grafana/:/etc/grafana/provisioning
 
   logstash:
-    image: logstash:8.10.0
+    image: docker.elastic.co/logstash/logstash:8.10.0
     volumes:
       - ./logstash:/etc/logstash
     command: logstash -f /etc/logstash/logstash.conf
