@@ -39,6 +39,21 @@ services:
       - OTEL_TRACE_HOST=jaeger
       - OTEL_RESOURCE_ATTRIBUTES=service.name=service2
 
+  service3:
+    build:
+      context: ./service2
+    ports:
+      - 3003:3000
+    environment:
+      # - OTEL_TRACE_HOST=143.198.216.115
+      - OTEL_TRACE_HOST=jaeger
+      - OTEL_RESOURCE_ATTRIBUTES=service.name=service3
+    logging:
+      driver: gelf
+      options:
+        gelf-address: "udp://localhost:12201" # Logstash UDP input port
+        tag: "myapp"
+
   prometheus:
     image: prom/prometheus
     ports:
@@ -52,3 +67,13 @@ services:
       - "3000:3000"
     volumes:
       - ./grafana/:/etc/grafana/provisioning
+
+  logstash:
+    image: logstash:8.10.0
+    volumes:
+      - ./logstash:/etc/logstash
+    command: logstash -f /etc/logstash/logstash.conf
+    depends_on:
+      - elasticsearch
+    ports:
+      - 12201:12201/udp
