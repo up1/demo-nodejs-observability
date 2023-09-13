@@ -77,4 +77,4 @@ $docker compose logs --follow
 ```
 
 Access to service 3, see log in terminal
-* http://localhost:3002/movies
+* http://localhost:3003/movies

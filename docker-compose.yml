@@ -76,4 +76,5 @@ services:
     ports:
       - 12201:12201/udp
     environment:
-      - xpack.monitoring.elasticsearch.ssl.verification_mode=none
+      - XPACK_MANAGEMENT_ENABLED=false
+      - XPACK_MONITORING_ENABLED=false
