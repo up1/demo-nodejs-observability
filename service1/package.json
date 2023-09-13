@@ -1,0 +1,29 @@
+{
+  "name": "service1",
+  "version": "1.0.0",
+  "description": "",
+  "main": "tracer.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@opentelemetry/api": "^1.4.1",
+    "@opentelemetry/auto-instrumentations-node": "^0.39.2",
+    "@opentelemetry/exporter-collector": "^0.25.0",
+    "@opentelemetry/exporter-jaeger": "^1.17.0",
+    "@opentelemetry/instrumentation": "^0.43.0",
+    "@opentelemetry/plugin-express": "^0.15.0",
+    "@opentelemetry/plugin-http": "^0.18.2",
+    "@opentelemetry/propagator-ot-trace": "^0.27.1",
+    "@opentelemetry/resources": "^1.17.0",
+    "@opentelemetry/sdk-node": "^0.43.0",
+    "@opentelemetry/sdk-trace-base": "^1.17.0",
+    "@opentelemetry/sdk-trace-node": "^1.17.0",
+    "@opentelemetry/semantic-conventions": "^1.17.0",
+    "@opentelemetry/tracing": "^0.24.0",
+    "cross-fetch": "^3.1.5",
+    "express": "^4.17.3"
+  }
+}
