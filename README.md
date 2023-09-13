@@ -69,12 +69,12 @@ Access to service 1 -> service 2
 
 ## 3. Centralized log with ELK stack
 
-### Start Service 2
+### Start Service 3
 ```
-$docker compose up -d service2 --build
+$docker compose up -d service3 --build
 $docker compose ps
 $docker compose logs --follow
 ```
 
-Access to service 2, see log in terminal
+Access to service 3, see log in terminal
 * http://localhost:3002/movies
