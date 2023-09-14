@@ -1,0 +1,18 @@
+version: '3.8'
+
+networks:
+  elastic:
+    name: elastic
+    external: true
+
+services:
+  logstash:
+    image: docker.elastic.co/logstash/logstash:8.10.0
+    volumes:
+      - ./logstash:/etc/logstash
+    command: logstash -f /etc/logstash/logstash.conf
+    ports:
+      - 12201:12201/udp
+    environment:
+      - XPACK_MANAGEMENT_ENABLED=false
+      - XPACK_MONITORING_ENABLED=false
